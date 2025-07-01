@@ -8,25 +8,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>Rajeshwar Gadhe</h1>
-        <p>📞 (+353) 894013 433 | Dublin, D01K659</p>
-        <p>📧 <a href="mailto:rajeshwar.gadhe.cloud@gmail.com">rajeshwar.gadhe.cloud@gmail.com</a> | <a href="https://linkedin.com/in/rajeshwar-gadhe">linkedin.com/in/rajeshwar-gadhe</a></p>
-
-        <h2>Profile</h2>
-<ul>
-    <li>Possess over 3 years of professional experience in Cloud Operations Engineering.</li>
-    <li>Accomplished Microsoft Certified Azure Administrator Associate (AZ-104) and Oracle Cloud Infrastructure Associate, demonstrating expertise in cloud operations and infrastructure management.</li>
-    <li>Deep understanding of Microservice architecture, Linux system administration, and security protocols.</li>
-    <li>Committed to driving innovation and delivering impactful solutions in cloud computing.</li>
-    <li>VISA Status: Authorized to work full-time in Ireland without sponsorship under a Stamp-1G visa.</li>
-</ul>
 
         <h2>Employment History</h2>
 
         <h3>Senior Operations Engineer | Epiq Global | Mar 2023 – Jan 2024 | Pune, India</h3>
         <ul>
-            <li>Managed the installation, configuration, and health of over 100+ Linux and Windows servers, leading to a 15% reduction in downtime through debugging and issue analysis.</li>
-            <li>Delivered L1–L2 support for cloud infrastructure, ensuring SLA adherence and user satisfaction.</li>
             <li>Automated routine tasks via Bash scripts, reducing manual effort and increasing incident response efficiency.</li>
             <li>Monitored AWS and Azure services using CloudWatch and Azure Monitor, maintaining 99.9% uptime.</li>
             <li>Set up IAM roles, configured MFA, and enforced secure system access policies.</li>
@@ -46,31 +32,31 @@
             <li>Participated in cross-functional meetings, sharing insights to enhance cloud service efficiency.</li>
         </ul>
 
-       <h2>Education</h2>
+        <h2>Education</h2>
 
-<h3>MBA in Cloud Computing | Dublin Business School, Ireland | Jan 2024 – Feb 2025</h3>
-<p><strong>Modules Completed:</strong> Cloud Application Management, Cloud Technologies for Business, Research in Computing, Strategic Marketing Analysis, Applied Strategic Management, Managerial Financial Analysis.</p>
+        <h3>MBA in Cloud Computing | Dublin Business School, Ireland | Jan 2024 – Feb 2025</h3>
+        <p><strong>Modules Completed:</strong> Cloud Application Management, Cloud Technologies for Business, Research in Computing, Strategic Marketing Analysis, Applied Strategic Management, Managerial Financial Analysis.</p>
 
-<h3>B.E. in Electronics and Telecommunication | Pune University, India | Aug 2016 – Nov 2020</h3>
+        <h3>B.E. in Electronics and Telecommunication | Pune University, India | Aug 2016 – Nov 2020</h3>
 
-   <h2>Technology Skills and Certifications</h2>
+        <h2>Technology Skills and Certifications</h2>
 
-<p><strong>Cloud Platforms:</strong> AWS, Azure</p>
-<p><strong>Operating Systems:</strong> Linux Ubuntu</p>
-<p><strong>Scripting:</strong> Python, Shell, REST APIs</p>
-<p><strong>Web & Database:</strong> Apache, Nginx, MySQL, MongoDB</p>
-<p><strong>Monitoring & Reporting:</strong> CloudWatch, Azure Monitor, Log Analysis</p>
-<p><strong>DevOps & Automation:</strong> Ansible, Docker, GitHub, Terraform</p>
-<p><strong>Security:</strong> IAM, Active Directory, MFA, SSL/TLS, Security Audits</p>
-<p><strong>Networking:</strong> Load Balancers, VPN, VPC, DNS, TCP/IP, DHCP and SMTP protocols, LDAP, Firewall Rules</p>
+        <p><strong>Cloud Platforms:</strong> AWS, Azure</p>
+        <p><strong>Operating Systems:</strong> Linux Ubuntu</p>
+        <p><strong>Scripting:</strong> Python, Shell, REST APIs</p>
+        <p><strong>Web & Database:</strong> Apache, Nginx, MySQL, MongoDB</p>
+        <p><strong>Monitoring & Reporting:</strong> CloudWatch, Azure Monitor, Log Analysis</p>
+        <p><strong>DevOps & Automation:</strong> Ansible, Docker, GitHub, Terraform</p>
+        <p><strong>Security:</strong> IAM, Active Directory, MFA, SSL/TLS, Security Audits</p>
+        <p><strong>Networking:</strong> Load Balancers, VPN, VPC, DNS, TCP/IP, DHCP and SMTP protocols, LDAP, Firewall Rules</p>
 
-<h3>Certifications:</h3>
-<ul>
-    <li>Microsoft Certified: Azure Administrator Associate (AZ-104)</li>
-    <li>Oracle Cloud Infrastructure Associate</li>
-</ul>
+        <h3>Certifications:</h3>
+        <ul>
+            <li>Microsoft Certified: Azure Administrator Associate (AZ-104)</li>
+            <li>Oracle Cloud Infrastructure Associate</li>
+        </ul>
 
-<p><strong>Award:</strong> Spotlight Award – Epiq Global</p>
+        <p><strong>Award:</strong> Spotlight Award – Epiq Global</p>
 
         <h2>Projects</h2>
 
@@ -94,6 +80,7 @@
             <li>Assessed hybrid cloud strategies that demonstrated a 25% increase in operational agility while lowering risk metrics by 30%.</li>
             <li>Proposed actionable strategies to enhance cloud adoption for startups, enabling better resource allocation and cost savings.</li>
         </ul>
+
     </div>
 </body>
 </html>
