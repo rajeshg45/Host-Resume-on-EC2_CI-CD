@@ -1,86 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rajeshwar Gadhe - DevOps Engineer Resume</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
+name: Push-to-EC2
 
-        <h2>Employment History</h2>
+# Trigger deployment only on push to main branch
+on:
+  push:
+    branches:
+      - main
 
-        <h3>Senior Operations Engineer | Epiq Global | Mar 2023 – Jan 2024 | Pune, India</h3>
-        <ul>
-            <li>Automated routine tasks via Bash scripts, reducing manual effort and increasing incident response efficiency.</li>
-            <li>Monitored AWS and Azure services using CloudWatch and Azure Monitor, maintaining 99.9% uptime.</li>
-            <li>Set up IAM roles, configured MFA, and enforced secure system access policies.</li>
-            <li>Developed automation scripts in Python and Bash to streamline server maintenance and deployment tasks.</li>
-            <li>Supported on-call rotations and shift handovers for 24x7x365 operations.</li>
-            <li>Participated in backup setups, patching, system upgrades, and containerized deployments using Docker.</li>
-        </ul>
+jobs:
+  deploy:
+    name: Deploy to EC2 on master branch push
+    runs-on: ubuntu-latest
 
-        <h3>Operations Engineer | Epiq Global | Mar 2021 – Mar 2023 | Pune, India</h3>
-        <ul>
-            <li>Assisted in cloud migrations, configuring instances and storage solutions for AWS and Azure.</li>
-            <li>Developed monitoring strategies that improved alert accuracy by 35% and incident response times.</li>
-            <li>Managed system backups for 100+ servers and patching schedules, ensuring compliance and security.</li>
-            <li>Conducted routine performance audits, analyzing system metrics to reduce downtime risks.</li>
-            <li>Collaborated with cloud architects on automation initiatives, streamlining deployments.</li>
-            <li>Created 10+ documentation and knowledge base articles, supporting operational workflows and best practices.</li>
-            <li>Participated in cross-functional meetings, sharing insights to enhance cloud service efficiency.</li>
-        </ul>
+    steps:
+      - name: Checkout the files
+        uses: actions/checkout@v2
 
-        <h2>Education</h2>
+      - name: Deploy to Server 1
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
 
-        <h3>MBA in Cloud Computing | Dublin Business School, Ireland | Jan 2024 – Feb 2025</h3>
-        <p><strong>Modules Completed:</strong> Cloud Application Management, Cloud Technologies for Business, Research in Computing, Strategic Marketing Analysis, Applied Strategic Management, Managerial Financial Analysis.</p>
-
-        <h3>B.E. in Electronics and Telecommunication | Pune University, India | Aug 2016 – Nov 2020</h3>
-
-        <h2>Technology Skills and Certifications</h2>
-
-        <p><strong>Cloud Platforms:</strong> AWS, Azure</p>
-        <p><strong>Operating Systems:</strong> Linux Ubuntu</p>
-        <p><strong>Scripting:</strong> Python, Shell, REST APIs</p>
-        <p><strong>Web & Database:</strong> Apache, Nginx, MySQL, MongoDB</p>
-        <p><strong>Monitoring & Reporting:</strong> CloudWatch, Azure Monitor, Log Analysis</p>
-        <p><strong>DevOps & Automation:</strong> Ansible, Docker, GitHub, Terraform</p>
-        <p><strong>Security:</strong> IAM, Active Directory, MFA, SSL/TLS, Security Audits</p>
-        <p><strong>Networking:</strong> Load Balancers, VPN, VPC, DNS, TCP/IP, DHCP and SMTP protocols, LDAP, Firewall Rules</p>
-
-        <h3>Certifications:</h3>
-        <ul>
-            <li>Microsoft Certified: Azure Administrator Associate (AZ-104)</li>
-            <li>Oracle Cloud Infrastructure Associate</li>
-        </ul>
-
-        <p><strong>Award:</strong> Spotlight Award – Epiq Global</p>
-
-        <h2>Projects</h2>
-
-        <h3>Event Management Web App on Azure</h3>
-        <ul>
-            <li>Built and deployed a scalable event booking platform on Azure, utilizing Virtual Machines for computing power and Blob Storage for secure data management.</li>
-            <li>Implemented Python Flask for backend development, managing user authentication, event listings, and transaction workflows.</li>
-            <li>Integrated third-party APIs for payment gateways and real-time event updates.</li>
-        </ul>
-
-        <h3>CI/CD Pipeline on AWS</h3>
-        <ul>
-            <li>Designed and implemented a fully automated CI/CD pipeline using AWS CodePipeline that increased deployment frequency by 40%.</li>
-            <li>Integrated testing, monitoring, and notification mechanisms to ensure high deployment success rates.</li>
-            <li>Streamlined infrastructure provisioning using Terraform, improving consistency across environments.</li>
-        </ul>
-
-        <h3>Cloud Computing's Impact on Startup Scalability (MBA Project)</h3>
-        <ul>
-            <li>Conducted an in-depth case study analyzing multi-cloud adoption strategies, comparing AWS and Azure in terms of cost, scalability, security, and performance.</li>
-            <li>Assessed hybrid cloud strategies that demonstrated a 25% increase in operational agility while lowering risk metrics by 30%.</li>
-            <li>Proposed actionable strategies to enhance cloud adoption for startups, enabling better resource allocation and cost savings.</li>
-        </ul>
-
-    </div>
-</body>
-</html>
+      - name: Executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            sudo apt-get -y update
+            sudo apt-get install -y apache2
+            sudo systemctl start apache2
+            sudo systemctl enable apache2
+            cd home
+            sudo mv * /var/www/html
